@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/bmp_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/bmp_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Base.Theme.BhopalMetroApp"
+        tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBoNAeEP4McXcOKW9_MfkDkQ5-XJ89kUNM" />
+
+        <activity
+            android:name=".InteractiveMap"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".About_Developer"
+            android:exported="false" />
+        <activity
+            android:name=".Helplines"
+            android:exported="false" />
+        <activity
+            android:name=".FareCalculator"
+            android:exported="false" />
+        <activity
+            android:name=".TrainTime"
+            android:exported="false" />
+        <activity
+            android:name=".FacilitiesParking"
+            android:exported="false" />
+        <activity
+            android:name=".UpcomingMetro"
+            android:exported="false" />
+        <activity
+            android:name=".FirstLastMetro"
+            android:exported="false" />
+        <activity
+            android:name=".AllLines"
+            android:exported="false" />
+        <activity
+            android:name=".FindBestRouteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RouteMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".JunctionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

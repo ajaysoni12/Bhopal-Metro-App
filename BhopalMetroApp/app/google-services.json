@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "792712940489",
+    "firebase_url": "https://bhopal-metro-app-default-rtdb.firebaseio.com",
+    "project_id": "bhopal-metro-app",
+    "storage_bucket": "bhopal-metro-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792712940489:android:f9b3320f3cf9ec82233618",
+        "android_client_info": {
+          "package_name": "com.example.bhopalmetroapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2vYgjA2_M9BNUfi1XgoQwE7GnB8J5OGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
