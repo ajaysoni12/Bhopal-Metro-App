@@ -21,8 +21,17 @@ Welcome to the **Bhopal Metro App**, your ultimate companion for navigating the 
 - **XML, Java, Android Studio**
 
 ## Screenshots 
-![1](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/a9e9edaa-9823-4672-b60a-a22fb5cfd1ee) ![2](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/99b28018-b0ee-40cf-a93b-2e815102dc99) ![3](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/3c1e688b-cc3a-46c0-a620-578805bb4dbf) ![4](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/3e82b99d-83db-4723-9684-9c5948aa7a49) ![5](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/96e028af-613a-41da-9655-70738588e676)![6](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/ce576170-7164-4f70-9984-8c580ea2f090)
-![7](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/757d6e93-6897-48f4-b31e-02258d6bd522) ![8](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/b2b66001-7b5c-431b-8af4-ab90e311cbc6)
+<p align="center">
+  <img src="your_relative_path_here" width="350" title="">
+</p>
+![1](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/a9e9edaa-9823-4672-b60a-a22fb5cfd1ee)
+![2](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/99b28018-b0ee-40cf-a93b-2e815102dc99)
+![3](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/3c1e688b-cc3a-46c0-a620-578805bb4dbf)
+![4](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/3e82b99d-83db-4723-9684-9c5948aa7a49)
+![5](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/96e028af-613a-41da-9655-70738588e676)
+![6](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/ce576170-7164-4f70-9984-8c580ea2f090)
+![7](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/757d6e93-6897-48f4-b31e-02258d6bd522)
+![8](https://github.com/ajaysoni12/Bhopal-Metro-App/assets/106678641/b2b66001-7b5c-431b-8af4-ab90e311cbc6)
 
 ## Demo Video 
 
