@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="10sp"
-            android:text="Find best Route"
+            android:text="Fare Calculator"
             android:textColor="@color/white"
             android:textStyle="normal" />
 

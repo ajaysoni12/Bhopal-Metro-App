@@ -371,7 +371,7 @@
                     android:layout_marginBottom="25dp"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/bmp_helplines" />
+                    android:src="@drawable/bmp_ola" />
 
                 <TextView
                     android:layout_width="match_parent"
