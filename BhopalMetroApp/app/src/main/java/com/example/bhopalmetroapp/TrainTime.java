@@ -57,6 +57,9 @@ public class TrainTime extends AppCompatActivity {
             }
         });
 
+        // Use ViewModel to load schedules (falls back to cached DB / packaged JSON)
+        TrainTimeViewModel vm = new androidx.lifecycle.ViewModelProvider(this).get(TrainTimeViewModel.class);
+
         btnFindTrainTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,30 +70,39 @@ public class TrainTime extends AppCompatActivity {
                     return;
                 }
 
+                final int code = stationToCode.get(station);
 
-                ProgressDialog progressDialog = new ProgressDialog(TrainTime.this);
+                final ProgressDialog progressDialog = new ProgressDialog(TrainTime.this);
                 progressDialog.setMessage("Loading...");
                 progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Set the style to spinner
                 progressDialog.setCancelable(false); // Make the dialog not cancelable
                 progressDialog.show();
 
-                ArrayList<ArrayList<String>> arrivalDepartureTime = metroUtilities.getArrivalDepartureTime(stationToCode.get(station));
-
-                for (int i = 0; i < arrivalDepartureTime.size(); i++) {
-                    for (int j = 0; j < arrivalDepartureTime.get(i).size(); j++) {
-                        System.out.println("" + arrivalDepartureTime.get(i).get(j));
-                    }
-                }
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
+                vm.getSchedules().observe(TrainTime.this, schedules -> {
+                    if (schedules == null || schedules.isEmpty()) {
                         progressDialog.dismiss();
-                        viewPager.setVisibility(View.VISIBLE);
-                        tabLayout.setVisibility(View.VISIBLE);
-                        viewPagerTrainTimeAdapter.updateData(arrivalDepartureTime);
+                        viewPager.setVisibility(View.GONE);
+                        tabLayout.setVisibility(View.GONE);
+                        Toast.makeText(TrainTime.this, "No schedule available", Toast.LENGTH_SHORT).show();
+                        return;
                     }
-                }, 1000);
+
+                    // convert to expected adapter format (arrival/departure lists)
+                    ArrayList<ArrayList<String>> arrivalDepartureTime = new ArrayList<>();
+                    ArrayList<String> arrival = new ArrayList<>();
+                    ArrayList<String> departure = new ArrayList<>();
+                    for (String t : schedules.get(0).departureTimesCsv.split(",")) departure.add(t);
+                    arrivalDepartureTime.add(arrival);
+                    arrivalDepartureTime.add(departure);
+
+                    progressDialog.dismiss();
+                    viewPager.setVisibility(View.VISIBLE);
+                    tabLayout.setVisibility(View.VISIBLE);
+                    viewPagerTrainTimeAdapter.updateData(arrivalDepartureTime);
+                });
+
+                // trigger load (ViewModel will use repository -> DB -> packaged JSON)
+                vm.loadSchedules(code);
             }
         });
 

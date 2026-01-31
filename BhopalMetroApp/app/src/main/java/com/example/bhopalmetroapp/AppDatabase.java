@@ -20,6 +20,41 @@ public abstract class AppDatabase extends RoomDatabase {
             if (INSTANCE == null) {
                 INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, DB_NAME)
                         .fallbackToDestructiveMigration()
+                        .addCallback(new RoomDatabase.Callback() {
+                            @Override
+                            public void onCreate(@androidx.annotation.NonNull androidx.sqlite.db.SupportSQLiteDatabase db) {
+                                super.onCreate(db);
+                                // Seed DB on first create from packaged JSON (stations + schedules) and add sample favorites
+                                java.util.concurrent.Executors.newSingleThreadExecutor().execute(() -> {
+                                    try {
+                                        LocalStationDataSource src = new LocalStationDataSource(context.getApplicationContext());
+                                        java.util.List<Station> stations = src.loadAndCacheStations();
+                                        // load schedules for first few stations
+                                        for (int i = 0; i < Math.min(5, stations.size()); i++) {
+                                            src.loadSchedulesForStation(stations.get(i).stationCode);
+                                        }
+
+                                        // add 2 sample favorites so UI isn't empty in demos
+                                        AppDatabase database = AppDatabase.getInstance(context.getApplicationContext());
+                                        if (database.favoriteDao().exists(stations.get(0).stationCode) == 0) {
+                                            FavoriteStation f1 = new FavoriteStation();
+                                            f1.stationCode = stations.get(0).stationCode;
+                                            f1.stationName = stations.get(0).name;
+                                            f1.addedAt = System.currentTimeMillis();
+
+                                            FavoriteStation f2 = new FavoriteStation();
+                                            f2.stationCode = stations.get(Math.min(2, stations.size()-1)).stationCode;
+                                            f2.stationName = stations.get(Math.min(2, stations.size()-1)).name;
+                                            f2.addedAt = System.currentTimeMillis() - 1000L;
+
+                                            database.favoriteDao().insert(f1);
+                                            database.favoriteDao().insert(f2);
+                                        }
+                                    } catch (Exception ignored) {
+                                    }
+                                });
+                            }
+                        })
                         .build();
 
                 }
