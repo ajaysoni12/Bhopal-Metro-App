@@ -45,23 +45,67 @@ public class AllLines extends AppCompatActivity {
 
         init();
 
-        allStationsList = metroUtilities.getStationList(stationToCode, codeToStation, stationToLines);
+        // Use MVVM repository to load stations (fallbacks handled by repository)
+        StationViewModel vm = new androidx.lifecycle.ViewModelProvider(this).get(StationViewModel.class);
 
         viewPagerLineAdapter = new ViewPagerLineAdapter(getSupportFragmentManager(), new ArrayList<>());
         viewPager.setAdapter(viewPagerLineAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
+        // Observe stations and populate UI when available
+        vm.getStations().observe(this, stations -> {
+            allStationsList.clear();
+            stationToCode.clear();
+            codeToStation.clear();
+            stationToLines.clear();
 
-        ArrayAdapter<String> stationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, allStationsList);
-        edtStation.setAdapter(stationAdapter);
-        edtStation.setThreshold(1); // when user enter one character list will be show there
+            for (Station s : stations) {
+                allStationsList.add(s.name);
+                stationToCode.put(s.name, s.stationCode);
+                codeToStation.put(s.stationCode, s.name);
+                stationToLines.put(s.name, s.line == null ? "" : s.line);
+            }
+
+            ArrayAdapter<String> stationAdapter = new ArrayAdapter<>(AllLines.this, android.R.layout.simple_dropdown_item_1line, allStationsList);
+            edtStation.setAdapter(stationAdapter);
+            edtStation.setThreshold(1); // when user enter one character list will be show there
+
+            // Build stationsByLine for existing UI
+            ArrayList<ArrayList<String>> stationsByLine = new ArrayList<>();
+            for (java.util.Map.Entry<String, String> entry : stationToLines.entrySet()) {
+                String station = entry.getKey();
+                String line = entry.getValue();
+
+                int lineIndex = -1;
+                for (int i = 0; i < stationsByLine.size(); i++) {
+                    if (stationsByLine.get(i).get(0).equals(line)) {
+                        lineIndex = i;
+                        break;
+                    }
+                }
+
+                if (lineIndex == -1) {
+                    ArrayList<String> newLineList = new ArrayList<>();
+                    newLineList.add(line);
+                    newLineList.add(station);
+                    stationsByLine.add(newLineList);
+                } else {
+                    stationsByLine.get(lineIndex).add(station);
+                }
+            }
+            java.util.Collections.sort(stationsByLine, java.util.Comparator.comparing(list -> list.get(0)));
+            viewPagerLineAdapter.updateData(stationsByLine);
+        });
+
+        // Trigger load
+        vm.loadStations();
+
         edtStation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 edtStation.showDropDown();
             }
         });
-
 
         btnFindLine.setOnClickListener(new View.OnClickListener() {
             @Override

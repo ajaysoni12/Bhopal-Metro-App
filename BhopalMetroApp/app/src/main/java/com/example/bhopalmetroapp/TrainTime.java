@@ -94,6 +94,14 @@ public class TrainTime extends AppCompatActivity {
             }
         });
 
+        // Support deep-linking / quick open from other screens: prefill station and run search
+        String prefill = getIntent().getStringExtra("station_name");
+        if (prefill != null && stationToCode.containsKey(prefill)) {
+            edtStation.setText(prefill);
+            // small delay so UI is ready
+            edtStation.postDelayed(() -> btnFindTrainTime.performClick(), 200);
+        }
+
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

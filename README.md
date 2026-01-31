@@ -1,4 +1,4 @@
-
+# Bhopal-Metro-App
 # Bhopal Metro App
 
 Welcome to the **Bhopal Metro App**, your ultimate companion for navigating the Bhopal metro system. This app provides you with a variety of features to enhance your metro experience, including:
@@ -8,6 +8,9 @@ Welcome to the **Bhopal Metro App**, your ultimate companion for navigating the 
 - **Junctions:** Explore the various junctions along the Bhopal metro lines.
 - **All Lines:** View information about all metro lines in Bhopal.
 - **Route Map:** Access a detailed route map to help plan your journey.
+- **Station Info:** Get detailed information about each metro station.
+- **Train Info:** Stay updated with the latest train information.
+- **Metro Status:** Check the current status of the metro services.
 - **Best Route:** Find the best route based on factors such as cost and distance.
 - **First and Last Metro:** Check the timings for the first and last metro of the day.
 - **Upcoming Metro:** Stay informed about upcoming metro arrivals.

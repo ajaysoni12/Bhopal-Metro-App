@@ -74,6 +74,9 @@
             android:name=".JunctionsActivity"
             android:exported="false" />
         <activity
+            android:name=".FavoritesActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
     </application>

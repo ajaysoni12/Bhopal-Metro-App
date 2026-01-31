@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Bhopal Metro App</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ola">OLA</string>
+
+    <!-- Favorites / ETA -->
+    <string name="favorites">Favorites</string>
+    <string name="no_favorites">No favorites yet — tap the star on a station to add</string>
+    <string name="next_train_label">Next train</string>
+    <string name="added_to_favorites">Added to favorites</string>
+    <string name="removed_from_favorites">Removed from favorites</string>
 </resources>

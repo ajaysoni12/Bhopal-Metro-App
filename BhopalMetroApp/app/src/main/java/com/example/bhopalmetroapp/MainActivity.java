@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.cvSeeLines) {
             Intent iLines = new Intent(MainActivity.this, AllLines.class);
             startActivity(iLines);
+        } else if (id == R.id.cvFavorites) {
+            Intent iFav = new Intent(MainActivity.this, FavoritesActivity.class);
+            startActivity(iFav);
         } else if (id == R.id.cvFLMetro) {
             Intent iMetro = new Intent(MainActivity.this, FirstLastMetro.class);
             startActivity(iMetro);

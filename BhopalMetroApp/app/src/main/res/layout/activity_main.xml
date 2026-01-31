@@ -146,6 +146,37 @@
 
             </androidx.cardview.widget.CardView>
 
+            <!-- Favorites quick card (new) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvFavorites"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:onClick="features"
+                app:cardCornerRadius="20dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bmp_fav" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@color/black"
+                    android:gravity="center_horizontal"
+                    android:text="Favorites"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView> 
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvSeeLines"
                 android:layout_width="0dp"
