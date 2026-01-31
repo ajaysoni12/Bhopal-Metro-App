@@ -3,7 +3,11 @@ package com.example.bhopalmetroapp;
 import java.util.List;
 import java.util.Map;
 
-class Station {
+/*
+ * Internal JSON mapping models for routes. Renamed inner Station -> RouteStation
+ * to avoid conflict with Room entity `com.example.bhopalmetroapp.Station`.
+ */
+class RouteStation {
     private String name;
     private int code;
 
@@ -48,14 +52,14 @@ class TrainTimes {
 }
 
 class Line {
-    private List<Station> stations;
+    private List<RouteStation> stations;
     private Map<Integer, TrainTimes> trainTimes;
 
-    public List<Station> getStations() {
+    public List<RouteStation> getStations() {
         return stations;
     }
 
-    public void setStations(List<Station> stations) {
+    public void setStations(List<RouteStation> stations) {
         this.stations = stations;
     }
 

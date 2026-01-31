@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Simple vehicle icon placeholder for OLA/Uber card. Replace with brand asset if desired. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#4DB6AC"
+        android:pathData="M5,11c-1.1,0 -2,0.9 -2,2v3c0,0.55 0.45,1 1,1h1c0.55,0 1-0.45 1-1v-1h10v1c0,0.55 0.45,1 1,1h1c0.55,0 1-0.45 1-1v-3c0-1.1 -0.9-2 -2-2H5zM6.5,12.5c-0.83,0 -1.5,-0.67 -1.5,-1.5S5.67,9.5 6.5,9.5 8,10.17 8,11 7.33,12.5 6.5,12.5zM17.5,12.5c-0.83,0 -1.5,-0.67 -1.5,-1.5s0.67-1.5 1.5-1.5 1.5,0.67 1.5,1.5 -0.67,1.5 -1.5,1.5zM4,9h16V7H4v2z"/>
+</vector>
